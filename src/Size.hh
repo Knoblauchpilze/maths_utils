@@ -38,12 +38,6 @@ namespace utils {
         const DimsType&
         h() const noexcept;
 
-        void
-        setWidth(const DimsType& width) noexcept;
-
-        void
-        setHeight(const DimsType& height) noexcept;
-
         bool
         isEmpty() const noexcept;
 

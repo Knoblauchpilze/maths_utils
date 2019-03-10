@@ -120,14 +120,6 @@ namespace utils {
         Vector2<CoordinateType>
         getNearestPoint(const Vector2<CoordinateType>& point) const noexcept;
 
-        /**
-         * @brief - Builds a top left SDL_Rect object from this box.
-         * @return - a sdl rect object based on the input type of this object.
-         */
-        // TODO: Find a way to reuse this method.
-        // SDL_Rect
-        // toSDLRect() const noexcept;
-
       private:
 
         CoordinateType m_x;

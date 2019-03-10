@@ -76,20 +76,6 @@ namespace utils {
 
     template <typename DimsType>
     inline
-    void
-    Size<DimsType>::setWidth(const DimsType& width) noexcept {
-      m_w = width;
-    }
-
-    template <typename DimsType>
-    inline
-    void
-    Size<DimsType>::setHeight(const DimsType& height) noexcept {
-      m_h = height;
-    }
-
-    template <typename DimsType>
-    inline
     bool
     Size<DimsType>::isEmpty() const noexcept {
       return m_w == DimsType() || m_h == DimsType();
