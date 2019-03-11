@@ -129,6 +129,7 @@ namespace utils {
     };
 
     using Boxf = Box<float>;
+    using Boxi = Box<int>;
 
   }
 }

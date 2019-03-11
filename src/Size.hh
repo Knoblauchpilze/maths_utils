@@ -64,6 +64,7 @@ namespace utils {
     };
 
     using Sizef = Size<float>;
+    using Sizei = Size<int>;
 
   }
 }
