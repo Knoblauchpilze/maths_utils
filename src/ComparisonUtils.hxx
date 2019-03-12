@@ -4,17 +4,16 @@
 # include "ComparisonUtils.hh"
 
 namespace utils {
-  namespace core {
 
-    template <typename DataType>
-    bool
-    fuzzyEqual(const DataType& value1,
-               const DataType& value2,
-               const DataType& epsilon)
-    {
-      return std::abs(value1 - value2) < epsilon;
-    }
+  template <typename DataType>
+  bool
+  fuzzyEqual(const DataType& value1,
+             const DataType& value2,
+             const DataType& epsilon)
+  {
+    return std::abs(value1 - value2) < epsilon;
   }
+
 }
 
 #endif    /* COMPARISONUTILS_HXX */

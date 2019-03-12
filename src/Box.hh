@@ -4,134 +4,132 @@
 # include "Vector2.hh"
 
 namespace utils {
-  namespace maths {
 
-    template <typename CoordinateType>
-    class Box {
-      public:
+  template <typename CoordinateType>
+  class Box {
+    public:
 
-        /**
-         * @brief - Describes a box centered at coordinate (x, y) with the specified dimensions (width, height)
-         * @param x - the x coordinate of the center.
-         * @param y - the y coordinate of the center.
-         * @param width - the width of the box.
-         * @param height - the height of the box.
-         */
-        explicit
-        Box(const CoordinateType& x = CoordinateType(),
-            const CoordinateType& y = CoordinateType(),
-            const CoordinateType& width = CoordinateType(),
-            const CoordinateType& height = CoordinateType()) noexcept;
+      /**
+       * @brief - Describes a box centered at coordinate (x, y) with the specified dimensions (width, height)
+       * @param x - the x coordinate of the center.
+       * @param y - the y coordinate of the center.
+       * @param width - the width of the box.
+       * @param height - the height of the box.
+       */
+      explicit
+      Box(const CoordinateType& x = CoordinateType(),
+          const CoordinateType& y = CoordinateType(),
+          const CoordinateType& width = CoordinateType(),
+          const CoordinateType& height = CoordinateType()) noexcept;
 
-        bool
-        valid() const noexcept;
+      bool
+      valid() const noexcept;
 
-        CoordinateType&
-        x() noexcept;
+      CoordinateType&
+      x() noexcept;
 
-        const CoordinateType&
-        x() const noexcept;
+      const CoordinateType&
+      x() const noexcept;
 
-        CoordinateType&
-        y() noexcept;
+      CoordinateType&
+      y() noexcept;
 
-        const CoordinateType&
-        y() const noexcept;
+      const CoordinateType&
+      y() const noexcept;
 
-        CoordinateType&
-        w() noexcept;
+      CoordinateType&
+      w() noexcept;
 
-        const CoordinateType&
-        w() const noexcept;
+      const CoordinateType&
+      w() const noexcept;
 
-        CoordinateType&
-        h() noexcept;
+      CoordinateType&
+      h() noexcept;
 
-        const CoordinateType&
-        h() const noexcept;
+      const CoordinateType&
+      h() const noexcept;
 
-        CoordinateType
-        getLeftBound() const noexcept;
+      CoordinateType
+      getLeftBound() const noexcept;
 
-        CoordinateType
-        getRightBound() const noexcept;
+      CoordinateType
+      getRightBound() const noexcept;
 
-        CoordinateType
-        getTopBound() const noexcept;
+      CoordinateType
+      getTopBound() const noexcept;
 
-        CoordinateType
-        getBottomBound() const noexcept;
+      CoordinateType
+      getBottomBound() const noexcept;
 
-        Vector2<CoordinateType>
-        getCenter() const noexcept;
+      Vector2<CoordinateType>
+      getCenter() const noexcept;
 
-        Vector2<CoordinateType>
-        getTopLeftCorner() const noexcept;
+      Vector2<CoordinateType>
+      getTopLeftCorner() const noexcept;
 
-        Vector2<CoordinateType>
-        getTopRightCorner() const noexcept;
+      Vector2<CoordinateType>
+      getTopRightCorner() const noexcept;
 
-        Vector2<CoordinateType>
-        getBottomRightCorner() const noexcept;
+      Vector2<CoordinateType>
+      getBottomRightCorner() const noexcept;
 
-        Vector2<CoordinateType>
-        getBottomLeftCorner() const noexcept;
+      Vector2<CoordinateType>
+      getBottomLeftCorner() const noexcept;
 
-        CoordinateType
-        getSurface() const noexcept;
+      CoordinateType
+      getSurface() const noexcept;
 
-        /**
-         * @brief - Checks whether the input box is contained inside this box.
-         * @param other - the other box to check for inclusion.
-         * @return - true if the other box is contained inside this box, false otherwise.
-         */
-        bool
-        contains(const Box<CoordinateType>& other) const noexcept;
+      /**
+       * @brief - Checks whether the input box is contained inside this box.
+       * @param other - the other box to check for inclusion.
+       * @return - true if the other box is contained inside this box, false otherwise.
+       */
+      bool
+      contains(const Box<CoordinateType>& other) const noexcept;
 
-        /**
-         * @brief - Checks whether the input box intersects this box.
-         * @param other - the other box to check for inclusion.
-         * @return - true if the other box is contained inside this box, false otherwise.
-         */
-        bool
-        intersects(const Box<CoordinateType>& other) const noexcept;
+      /**
+       * @brief - Checks whether the input box intersects this box.
+       * @param other - the other box to check for inclusion.
+       * @return - true if the other box is contained inside this box, false otherwise.
+       */
+      bool
+      intersects(const Box<CoordinateType>& other) const noexcept;
 
-        /**
-         * @brief - Checks whether the input box contains this box.
-         * @param other - the box into which this box should be contained.
-         * @return - true if the other box contains this box, false otherwise.
-         */
-        bool
-        isInside(const Box<CoordinateType>& other) const noexcept;
+      /**
+       * @brief - Checks whether the input box contains this box.
+       * @param other - the box into which this box should be contained.
+       * @return - true if the other box contains this box, false otherwise.
+       */
+      bool
+      isInside(const Box<CoordinateType>& other) const noexcept;
 
-        /**
-         * @brief - Checks whether the input point is inside this box.
-         * @param point - the input point to check for inclusion in this box.
-         * @return - true if the point lies inside this box, false otherwise.
-         */
-        bool
-        isInside(const Vector2<CoordinateType>& point) const noexcept;
+      /**
+       * @brief - Checks whether the input point is inside this box.
+       * @param point - the input point to check for inclusion in this box.
+       * @return - true if the point lies inside this box, false otherwise.
+       */
+      bool
+      isInside(const Vector2<CoordinateType>& point) const noexcept;
 
-        /**
-         * @brief - Retrieves the nearest point to the input 'point' belonging to this box.
-         * @param point - the point for which a box point should be retrieved.
-         * @return - a vector representing the closest point belonging to this box relatively to the input point.
-         */
-        Vector2<CoordinateType>
-        getNearestPoint(const Vector2<CoordinateType>& point) const noexcept;
+      /**
+       * @brief - Retrieves the nearest point to the input 'point' belonging to this box.
+       * @param point - the point for which a box point should be retrieved.
+       * @return - a vector representing the closest point belonging to this box relatively to the input point.
+       */
+      Vector2<CoordinateType>
+      getNearestPoint(const Vector2<CoordinateType>& point) const noexcept;
 
-      private:
+    private:
 
-        CoordinateType m_x;
-        CoordinateType m_y;
-        CoordinateType m_w;
-        CoordinateType m_h;
-    };
+      CoordinateType m_x;
+      CoordinateType m_y;
+      CoordinateType m_w;
+      CoordinateType m_h;
+  };
 
-    using Boxf = Box<float>;
-    using Boxi = Box<int>;
+  using Boxf = Box<float>;
+  using Boxi = Box<int>;
 
-  }
 }
 
 # include "Box.hxx"
