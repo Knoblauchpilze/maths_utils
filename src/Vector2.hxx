@@ -221,29 +221,28 @@ namespace utils {
       return m_x * other.m_y - m_y * other.m_x;
   }
 
+}
 
-  template <typename CoordinateType>
-  inline
-  Vector2<CoordinateType>
-  operator*(const CoordinateType& scale, const Vector2<CoordinateType>& vector) noexcept {
-    return vector * scale;
-  }
+template <typename CoordinateType>
+inline
+utils::Vector2<CoordinateType>
+operator*(const CoordinateType& scale, const utils::Vector2<CoordinateType>& vector) noexcept {
+  return vector * scale;
+}
 
-  template <typename CoordinateType>
-  inline
-  std::ostream&
-  operator<<(const Vector2<CoordinateType>& vec, std::ostream& out) noexcept {
-    return operator<<(out, vec);
-  }
+template <typename CoordinateType>
+inline
+std::ostream&
+operator<<(const utils::Vector2<CoordinateType>& vec, std::ostream& out) noexcept {
+  return operator<<(out, vec);
+}
 
-  template <typename CoordinateType>
-  inline
-  std::ostream&
-  operator<<(std::ostream& out, const Vector2<CoordinateType>& vec) noexcept {
-    out << vec.x() << "x" << vec.y();
-    return out;
-  }
-
+template <typename CoordinateType>
+inline
+std::ostream&
+operator<<(std::ostream& out, const utils::Vector2<CoordinateType>& vec) noexcept {
+  out << vec.x() << "x" << vec.y();
+  return out;
 }
 
 #endif    /* VECTOR2_HXX_INCLUDED */

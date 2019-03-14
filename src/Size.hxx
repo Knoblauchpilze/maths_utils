@@ -113,6 +113,28 @@ namespace utils {
     );
   }
 
+  template <typename DimsType>
+  inline
+  std::string
+  Size<DimsType>::toString() const noexcept {
+    return std::string("[Size: ") + std::to_string(w()) + "x" + std::to_string(h()) + "]";
+  }
+
+}
+
+template <typename DimsType>
+inline
+std::ostream&
+operator<<(const utils::Size<DimsType>& size, std::ostream& out) noexcept {
+  return operator<<(out, size);
+}
+
+template <typename DimsType>
+inline
+std::ostream&
+operator<<(std::ostream& out, const utils::Size<DimsType>& size) noexcept {
+  out << size.toString();
+  return out;
 }
 
 #endif    /* SIZE_HXX */

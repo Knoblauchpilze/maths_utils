@@ -1,6 +1,8 @@
 #ifndef    SIZE_HH
 # define   SIZE_HH
 
+# include <iostream>
+
 namespace utils {
 
   template <typename DimsType>
@@ -53,6 +55,9 @@ namespace utils {
       Size
       max() noexcept;
 
+      std::string
+      toString() const noexcept;
+
     public:
 
     private:
@@ -66,6 +71,14 @@ namespace utils {
   using Sizei = Size<int>;
 
 }
+
+template <typename DimsType>
+std::ostream&
+operator<<(const utils::Size<DimsType>& size, std::ostream& out) noexcept;
+
+template <typename DimsType>
+std::ostream&
+operator<<(std::ostream& out, const utils::Size<DimsType>& size) noexcept;
 
 # include "Size.hxx"
 
