@@ -119,6 +119,9 @@ namespace utils {
       Vector2<CoordinateType>
       getNearestPoint(const Vector2<CoordinateType>& point) const noexcept;
 
+      std::string
+      toString() const noexcept;
+
     private:
 
       CoordinateType m_x;
@@ -131,6 +134,14 @@ namespace utils {
   using Boxi = Box<int>;
 
 }
+
+template <typename CoordinateType>
+std::ostream&
+operator<<(const utils::Box<CoordinateType>& box, std::ostream& out) noexcept;
+
+template <typename CoordinateType>
+std::ostream&
+operator<<(std::ostream& out, const utils::Box<CoordinateType>& box) noexcept;
 
 # include "Box.hxx"
 

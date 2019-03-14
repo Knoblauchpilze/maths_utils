@@ -94,19 +94,20 @@ namespace utils {
       CoordinateType m_y;
   };
 
-  template <typename CoordinateType>
-  Vector2<CoordinateType>
-  operator*(const CoordinateType& scale, const Vector2<CoordinateType>& vector) noexcept;
-
-  template <typename CoordinateType>
-  std::ostream&
-  operator<<(const Vector2<CoordinateType>& vec, std::ostream& out) noexcept;
-
-  template <typename CoordinateType>
-  std::ostream&
-  operator<<(std::ostream& out, const Vector2<CoordinateType>& vec) noexcept;
 
 }
+
+template <typename CoordinateType>
+utils::Vector2<CoordinateType>
+operator*(const CoordinateType& scale, const utils::Vector2<CoordinateType>& vector) noexcept;
+
+template <typename CoordinateType>
+std::ostream&
+operator<<(const utils::Vector2<CoordinateType>& vec, std::ostream& out) noexcept;
+
+template <typename CoordinateType>
+std::ostream&
+operator<<(std::ostream& out, const utils::Vector2<CoordinateType>& vec) noexcept;
 
 # include "Vector2.hxx"
 

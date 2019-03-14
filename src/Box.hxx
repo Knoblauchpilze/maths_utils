@@ -197,6 +197,28 @@ namespace utils {
     );
   }
 
+  template <typename CoordinateType>
+  inline
+  std::string
+  Box<CoordinateType>::toString() const noexcept {
+    return std::string("[Box: ") +
+           "pos: " + std::to_string(x()) + "x" + std::to_string(y()) + ", " +
+           "dims: " + std::to_string(w()) + "x" + std::to_string(h()) + "]";
+  }
+
+}
+
+template <typename CoordinateType>
+std::ostream&
+operator<<(const utils::Box<CoordinateType>& box, std::ostream& out) noexcept {
+  return operator<<(out, box);
+}
+
+template <typename CoordinateType>
+std::ostream&
+operator<<(std::ostream& out, const utils::Box<CoordinateType>& box) noexcept {
+  out << box.toString();
+  return out;
 }
 
 #endif    /* BOX_HXX_INCLUDED */
