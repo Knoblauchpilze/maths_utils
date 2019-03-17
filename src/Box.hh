@@ -1,6 +1,7 @@
 #ifndef    BOX_HH
 # define   BOX_HH
 
+# include "Size.hh"
 # include "Vector2.hh"
 
 namespace utils {
@@ -121,6 +122,9 @@ namespace utils {
 
       std::string
       toString() const noexcept;
+
+      Size<CoordinateType>
+      toSize() const noexcept;
 
     private:
 
