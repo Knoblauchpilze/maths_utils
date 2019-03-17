@@ -206,6 +206,12 @@ namespace utils {
            "dims: " + std::to_string(w()) + "x" + std::to_string(h()) + "]";
   }
 
+  template <typename CoordinateType>
+  Size<CoordinateType>
+  Box<CoordinateType>::toSize() const noexcept {
+    return Size<CoordinateType>(w(), h());
+  }
+
 }
 
 template <typename CoordinateType>
