@@ -37,6 +37,13 @@ namespace utils {
 
   template <typename DimsType>
   inline
+  Size<DimsType>
+  Size<DimsType>::operator-(const Size& rhs) const noexcept {
+    return Size(m_w - rhs.m_w, m_h - rhs.m_h);
+  }
+
+  template <typename DimsType>
+  inline
   bool
   Size<DimsType>::fuzzyEqual(const Size& rhs,
                               const DimsType& tolerance) const noexcept
