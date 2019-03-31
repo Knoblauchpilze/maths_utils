@@ -23,6 +23,9 @@ namespace utils {
       Size
       operator+(const Size& rhs) const noexcept;
 
+      Size
+      operator-(const Size& rhs) const noexcept;
+
       bool
       fuzzyEqual(const Size& rhs,
                   const DimsType& tolerance) const noexcept;
