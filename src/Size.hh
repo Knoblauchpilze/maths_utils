@@ -26,6 +26,9 @@ namespace utils {
       Size
       operator-(const Size& rhs) const noexcept;
 
+      Size
+      operator*(const float& scale) const noexcept;
+
       bool
       fuzzyEqual(const Size& rhs,
                   const DimsType& tolerance) const noexcept;
@@ -82,6 +85,10 @@ operator<<(const utils::Size<DimsType>& size, std::ostream& out) noexcept;
 template <typename DimsType>
 std::ostream&
 operator<<(std::ostream& out, const utils::Size<DimsType>& size) noexcept;
+
+template <typename DimsType>
+utils::Size<DimsType>
+operator*(const float& scale, const utils::Size<DimsType>& size) noexcept;
 
 # include "Size.hxx"
 
