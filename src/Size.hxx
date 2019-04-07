@@ -44,6 +44,13 @@ namespace utils {
 
   template <typename DimsType>
   inline
+  Size<DimsType>
+  Size<DimsType>::operator*(const float& scale) const noexcept {
+    return Size(m_w * scale, m_h * scale);
+  }
+
+  template <typename DimsType>
+  inline
   bool
   Size<DimsType>::fuzzyEqual(const Size& rhs,
                               const DimsType& tolerance) const noexcept
@@ -142,6 +149,12 @@ std::ostream&
 operator<<(std::ostream& out, const utils::Size<DimsType>& size) noexcept {
   out << size.toString();
   return out;
+}
+
+template <typename DimsType>
+utils::Size<DimsType>
+operator*(const float& scale, const utils::Size<DimsType>& size) noexcept {
+  return size * scale;
 }
 
 #endif    /* SIZE_HXX */
