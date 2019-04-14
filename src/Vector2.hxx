@@ -26,10 +26,9 @@ namespace utils {
   inline
   Vector2<CoordinateType>&
   Vector2<CoordinateType>::operator=(const Vector2<CoordinateType>& other) noexcept {
-    if (other != *this) {
-      m_x = x;
-      m_y = y;
-    }
+    m_x = other.x();
+    m_y = other.y();
+
     return *this;
   }
 
@@ -221,6 +220,13 @@ namespace utils {
       return m_x * other.m_y - m_y * other.m_x;
   }
 
+  template <typename CoordinateType>
+  inline
+  std::string
+  Vector2<CoordinateType>::toString() const noexcept {
+    return std::string("[Vector: ") + std::to_string(x()) + ", " + std::to_string(y()) + "]";
+  }
+
 }
 
 template <typename CoordinateType>
@@ -241,7 +247,7 @@ template <typename CoordinateType>
 inline
 std::ostream&
 operator<<(std::ostream& out, const utils::Vector2<CoordinateType>& vec) noexcept {
-  out << vec.x() << "x" << vec.y();
+  out << vec.toString();
   return out;
 }
 
