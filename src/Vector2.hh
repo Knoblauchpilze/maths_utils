@@ -13,7 +13,6 @@ namespace utils {
       Vector2(const CoordinateType& x = CoordinateType(),
               const CoordinateType& y = CoordinateType()) noexcept;
 
-      explicit
       Vector2(const Vector2<CoordinateType>& other) noexcept;
 
       Vector2<CoordinateType>&
@@ -88,13 +87,17 @@ namespace utils {
       CoordinateType
       operator^(const Vector2<CoordinateType>& other) const noexcept;
 
+      std::string
+      toString() const noexcept;
+
     private:
 
       CoordinateType m_x;
       CoordinateType m_y;
   };
 
-
+  using Vector2f = Vector2<float>;
+  using Vector2i = Vector2<int>;
 }
 
 template <typename CoordinateType>
