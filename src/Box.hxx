@@ -207,9 +207,23 @@ namespace utils {
   }
 
   template <typename CoordinateType>
+  inline
   Size<CoordinateType>
   Box<CoordinateType>::toSize() const noexcept {
     return Size<CoordinateType>(w(), h());
+  }
+
+  template <typename CoordinateType>
+  template <typename OtherCoordinateType>
+  inline
+  Box<CoordinateType>
+  Box<CoordinateType>::fromSize(const Size<OtherCoordinateType>& size) noexcept {
+    return Box<CoordinateType>(
+      static_cast<CoordinateType>(size.w() / static_cast<CoordinateType>(2)),
+      static_cast<CoordinateType>(size.h() / static_cast<CoordinateType>(2)),
+      static_cast<CoordinateType>(size.w()),
+      static_cast<CoordinateType>(size.h())
+    );
   }
 
 }
