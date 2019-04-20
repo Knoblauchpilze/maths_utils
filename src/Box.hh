@@ -126,6 +126,18 @@ namespace utils {
       Size<CoordinateType>
       toSize() const noexcept;
 
+      /**
+       * @brief - Builds a centered box from the input size. Also converts the coordinates of
+       *          size into the required type to build the box. Might result in overflow.
+       * @param size - the size to convert.
+       * @return - a box with the same width and height than the input `size` and with a center
+       *           corresponding to `(size.w() / 2; size.h() / 2)`.
+       */
+      template <typename OtherCoordinateType>
+      static
+      Box<CoordinateType>
+      fromSize(const Size<OtherCoordinateType>& size) noexcept;
+
     private:
 
       CoordinateType m_x;
