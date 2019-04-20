@@ -11,8 +11,11 @@ r: release
 
 d: debug
 
-install: r
+copyHeaders:
 	sudo mkdir -p /usr/local/include/maths_utils
 	sudo cp src/*.hh /usr/local/include/maths_utils
 	sudo cp src/*.hxx /usr/local/include/maths_utils
 
+install: r copyHeaders
+
+installD: d copyHeaders
