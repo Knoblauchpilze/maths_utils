@@ -20,6 +20,18 @@ namespace utils {
   template <typename CoordinateType>
   inline
   bool
+  Box<CoordinateType>::operator==(const Box<CoordinateType>& other) const noexcept {
+    return
+      fuzzyEqual(m_x, other.m_x) &&
+      fuzzyEqual(m_y, other.m_y) &&
+      fuzzyEqual(m_w, other.m_w) &&
+      fuzzyEqual(m_h, other.m_h)
+    ;
+  }
+
+  template <typename CoordinateType>
+  inline
+  bool
   Box<CoordinateType>::valid() const noexcept {
     return m_w != CoordinateType() && m_h != CoordinateType();
   }

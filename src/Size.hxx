@@ -18,7 +18,7 @@ namespace utils {
   inline
   bool
   Size<DimsType>::operator==(const Size& rhs) const noexcept {
-    return m_w == rhs.m_w && m_h == rhs.m_h;
+    return fuzzyEqual(m_w, rhs.m_w) && fuzzyEqual(m_h, rhs.m_h);
   }
 
   template <typename DimsType>
