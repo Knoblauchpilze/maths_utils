@@ -24,6 +24,9 @@ namespace utils {
           const CoordinateType& height = CoordinateType()) noexcept;
 
       bool
+      operator==(const Box<CoordinateType>& other) const noexcept;
+
+      bool
       valid() const noexcept;
 
       CoordinateType&
