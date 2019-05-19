@@ -152,6 +152,7 @@ operator<<(std::ostream& out, const utils::Size<DimsType>& size) noexcept {
 }
 
 template <typename DimsType>
+inline
 utils::Size<DimsType>
 operator*(const float& scale, const utils::Size<DimsType>& size) noexcept {
   return size * scale;
