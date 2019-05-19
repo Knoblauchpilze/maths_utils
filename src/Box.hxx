@@ -241,12 +241,14 @@ namespace utils {
 }
 
 template <typename CoordinateType>
+inline
 std::ostream&
 operator<<(const utils::Box<CoordinateType>& box, std::ostream& out) noexcept {
   return operator<<(out, box);
 }
 
 template <typename CoordinateType>
+inline
 std::ostream&
 operator<<(std::ostream& out, const utils::Box<CoordinateType>& box) noexcept {
   out << box.toString();
