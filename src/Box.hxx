@@ -32,6 +32,13 @@ namespace utils {
   template <typename CoordinateType>
   inline
   bool
+  Box<CoordinateType>::operator!=(const Box<CoordinateType>& other) const noexcept {
+    return !operator==(other);
+  }
+
+  template <typename CoordinateType>
+  inline
+  bool
   Box<CoordinateType>::valid() const noexcept {
     return m_w != CoordinateType() && m_h != CoordinateType();
   }
