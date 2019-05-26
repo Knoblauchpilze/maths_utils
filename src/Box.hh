@@ -27,6 +27,9 @@ namespace utils {
       operator==(const Box<CoordinateType>& other) const noexcept;
 
       bool
+      operator!=(const Box<CoordinateType>& other) const noexcept;
+
+      bool
       valid() const noexcept;
 
       CoordinateType&
