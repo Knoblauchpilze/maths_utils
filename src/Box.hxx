@@ -70,7 +70,7 @@ namespace utils {
   Box<CoordinateType>::y() const noexcept {
     return m_y;
   }
-  
+
   template <typename CoordinateType>
   inline
   CoordinateType&
