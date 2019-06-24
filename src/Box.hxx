@@ -245,6 +245,17 @@ namespace utils {
     );
   }
 
+  template <typename CoordinateType>
+  Box<CoordinateType>
+  Box<CoordinateType>::scale(const float& factor) const noexcept {
+    return Box<CoordinateType>(
+      m_x,
+      m_y,
+      m_w * factor,
+      m_h * factor
+    );
+  }
+
 }
 
 template <typename CoordinateType>

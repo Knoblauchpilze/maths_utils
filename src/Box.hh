@@ -144,6 +144,9 @@ namespace utils {
       Box<CoordinateType>
       fromSize(const Size<OtherCoordinateType>& size) noexcept;
 
+      Box<CoordinateType>
+      scale(const float& factor) const noexcept;
+
     private:
 
       CoordinateType m_x;
