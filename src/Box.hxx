@@ -173,7 +173,7 @@ namespace utils {
   inline
   bool
   Box<CoordinateType>::contains(const Box<CoordinateType>& other) const noexcept {
-    return other.getLeftBound() >=  getLeftBound() &&
+    return other.getLeftBound() >= getLeftBound() &&
            other.getRightBound() <= getRightBound() &&
            other.getTopBound() <= getTopBound() &&
            other.getBottomBound() >= getBottomBound();
@@ -236,10 +236,12 @@ namespace utils {
   template <typename OtherCoordinateType>
   inline
   Box<CoordinateType>
-  Box<CoordinateType>::fromSize(const Size<OtherCoordinateType>& size) noexcept {
+  Box<CoordinateType>::fromSize(const Size<OtherCoordinateType>& size,
+                                const bool setToOrigin) noexcept
+  {
     return Box<CoordinateType>(
-      static_cast<CoordinateType>(size.w() / static_cast<CoordinateType>(2)),
-      static_cast<CoordinateType>(size.h() / static_cast<CoordinateType>(2)),
+      setToOrigin ? static_cast<CoordinateType>(0) : static_cast<CoordinateType>(size.w() / static_cast<CoordinateType>(2)),
+      setToOrigin ? static_cast<CoordinateType>(0) : static_cast<CoordinateType>(size.h() / static_cast<CoordinateType>(2)),
       static_cast<CoordinateType>(size.w()),
       static_cast<CoordinateType>(size.h())
     );
@@ -253,6 +255,35 @@ namespace utils {
       m_y,
       m_w * factor,
       m_h * factor
+    );
+  }
+
+  template <typename CoordinateType>
+  Box<CoordinateType>
+  Box<CoordinateType>::intersect(const Box<CoordinateType>& other) const noexcept {
+    // Compute the box to intersect from the internal coordinates. First
+    // we need to compute the width and height of the intersection if any.
+    const float overlappingW = std::min(getRightBound(), other.getRightBound()) - std::max(getLeftBound(), other.getLeftBound());
+    const float overlappingH = std::min(getTopBound(), other.getTopBound()) - std::max(getBottomBound(), other.getBottomBound());
+
+    // Compute the center of this overlapping width and height. If one of
+    // the dimension is negative it means that both boxes are not overlapping
+    // along this direction and thus we return the midpoint along this axis.
+    const float x = (
+      overlappingW < 0.0f ?
+      (other.m_x + m_x) / 2.0f :
+      (std::max(getLeftBound(), other.getLeftBound()) + std::min(getRightBound(), other.getRightBound())) / 2.0f
+    );
+    const float y = (
+      overlappingH < 0.0f ?
+      (other.m_y + m_y) / 2.0f :
+      (std::max(getBottomBound(), other.getBottomBound()) + std::min(getTopBound(), other.getTopBound())) / 2.0f
+    );
+
+    // Compute and return the intersection box.
+    return utils::Boxf(
+      x, y,
+      std::max(0.0f, overlappingW), std::max(0.0f, overlappingH)
     );
   }
 

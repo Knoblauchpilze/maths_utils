@@ -135,17 +135,33 @@ namespace utils {
       /**
        * @brief - Builds a centered box from the input size. Also converts the coordinates of
        *          size into the required type to build the box. Might result in overflow.
+       *          The input boolean allows to specify whether the center of the box should be
+       *          set to the origin or to the center of the dimensions.
        * @param size - the size to convert.
+       * @param setToOrigin - true if the center of the created box should be set to the origin,
+       *                      false if it should be set to the center of the dimensions.
        * @return - a box with the same width and height than the input `size` and with a center
        *           corresponding to `(size.w() / 2; size.h() / 2)`.
        */
       template <typename OtherCoordinateType>
       static
       Box<CoordinateType>
-      fromSize(const Size<OtherCoordinateType>& size) noexcept;
+      fromSize(const Size<OtherCoordinateType>& size,
+               const bool setToOrigin = false) noexcept;
 
       Box<CoordinateType>
       scale(const float& factor) const noexcept;
+
+      /**
+       * @brief - Computes the box resulting in the intersection of `this` box with the input
+       *          `other` box. The result might be an empty box if both `this` and `other` do
+       *          not overlap. In this case the position of the returned box is set to be the
+       *          midpoint of the positions of `other` and `this` with an empty area.
+       * @param other - the box to intersect with `this` box.
+       * @return - the intersection between the `other` and `this` box.
+       */
+      Box<CoordinateType>
+      intersect(const Box<CoordinateType>& other) const noexcept;
 
     private:
 
