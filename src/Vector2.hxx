@@ -119,8 +119,10 @@ namespace utils {
   inline
   bool
   Vector2<CoordinateType>::operator==(const Vector2<CoordinateType>& other) const noexcept {
-    return (fuzzyEqual(m_x, other.m_x) &&
-            fuzzyEqual(m_y, other.m_y));
+    return (
+      fuzzyEqual(m_x, other.m_x) &&
+      fuzzyEqual(m_y, other.m_y)
+    );
   }
 
   template <typename CoordinateType>
