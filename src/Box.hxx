@@ -10,9 +10,20 @@ namespace utils {
   Box<CoordinateType>::Box(const CoordinateType& x,
                            const CoordinateType& y,
                            const CoordinateType& width,
-                           const CoordinateType& height) noexcept :
+                           const CoordinateType& height) noexcept:
     m_x(x),
     m_y(y),
+    m_w(width),
+    m_h(height)
+  {}
+
+  template <typename CoordinateType>
+  inline
+  Box<CoordinateType>::Box(const Vector2<CoordinateType>& center,
+                           const CoordinateType& width,
+                           const CoordinateType& height) noexcept:
+    m_x(center.x()),
+    m_y(center.y()),
     m_w(width),
     m_h(height)
   {}
