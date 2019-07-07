@@ -23,6 +23,19 @@ namespace utils {
           const CoordinateType& width = CoordinateType(),
           const CoordinateType& height = CoordinateType()) noexcept;
 
+      /**
+       * @brief - Creates a box with the specified center and dimensions. The default box created is not valid
+       *          as both width and height are null.
+       * @param center - a vector representing the coordinates of the center of the box to create.
+       * @param width - the width of the box. This width will be distributed equally on both sides of the center.
+       * @param height - the height of the box. This height will be distributed equally on both sides of the
+       *                 center.
+       */
+      explicit
+      Box(const Vector2<CoordinateType>& center,
+          const CoordinateType& width = CoordinateType(),
+          const CoordinateType& height = CoordinateType()) noexcept;
+
       bool
       operator==(const Box<CoordinateType>& other) const noexcept;
 
