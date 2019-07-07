@@ -9,6 +9,7 @@ namespace utils {
   class Size {
     public:
 
+      explicit
       Size(const DimsType& width = DimsType(),
             const DimsType& height = DimsType());
 
@@ -30,8 +31,8 @@ namespace utils {
       operator*(const float& scale) const noexcept;
 
       bool
-      fuzzyEqual(const Size& rhs,
-                  const DimsType& tolerance) const noexcept;
+      compareWithTolerance(const Size& rhs,
+                           const DimsType& tolerance) const noexcept;
 
       DimsType&
       w() noexcept;

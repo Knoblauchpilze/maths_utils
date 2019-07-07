@@ -3,13 +3,14 @@
 
 # include <limits>
 # include "Size.hh"
+# include "ComparisonUtils.hh"
 
 namespace utils {
 
   template <typename DimsType>
   inline
   Size<DimsType>::Size(const DimsType& width,
-                        const DimsType& height):
+                       const DimsType& height):
     m_w(width),
     m_h(height)
   {}
@@ -52,13 +53,13 @@ namespace utils {
   template <typename DimsType>
   inline
   bool
-  Size<DimsType>::fuzzyEqual(const Size& rhs,
-                              const DimsType& tolerance) const noexcept
+  Size<DimsType>::compareWithTolerance(const Size& rhs,
+                                       const DimsType& tolerance) const noexcept
   {
-    return
-      std::abs(m_w - rhs.m_w) < tolerance &&
-      std::abs(m_h - rhs.m_h) < tolerance
-    ;
+    return (
+      fuzzyEqual(m_w, rhs.m_w, tolerance) &&
+      fuzzyEqual(m_h, rhs.m_h, tolerance)
+    );
   }
 
   template <typename DimsType>
