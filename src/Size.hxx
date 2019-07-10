@@ -135,6 +135,17 @@ namespace utils {
     return std::string("[Size: ") + std::to_string(w()) + "x" + std::to_string(h()) + "]";
   }
 
+  template <typename DimsType>
+  template <typename OtherDimsType>
+  inline
+  Size<OtherDimsType>
+  Size<DimsType>::toType() const {
+    return Size<OtherDimsType>(
+      static_cast<OtherDimsType>(m_w),
+      static_cast<OtherDimsType>(m_h)
+    );
+  }
+
 }
 
 template <typename DimsType>
