@@ -65,6 +65,16 @@ namespace utils {
       std::string
       toString() const noexcept;
 
+      /**
+       * @brief - Transforms this size into a new size where dimensions have the specified type.
+       *          Note that overflow is possible or more generally the chosen type might not be
+       *          able to accurately represent this box.
+       * @return - a new box whith coordinates of the specified type.
+       */
+      template <typename OtherDimsType>
+      Size<OtherDimsType>
+      toType() const;
+
     public:
 
     private:
