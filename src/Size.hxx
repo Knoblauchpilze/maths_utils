@@ -146,6 +146,12 @@ namespace utils {
     );
   }
 
+  template <typename DimsType>
+  bool
+  Size<DimsType>::contains(const Size<DimsType>& other) const noexcept {
+    return m_w >= other.m_w && m_h >= other.m_h;
+  }
+
 }
 
 template <typename DimsType>
