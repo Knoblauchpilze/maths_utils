@@ -75,6 +75,16 @@ namespace utils {
       Size<OtherDimsType>
       toType() const;
 
+      /**
+       * @brief - Used to determine whether both dimensions of the `other` size are smaller than
+       *          the dimensions of `this` size.
+       * @param other - the size with which `this` should be compared.
+       * @return - true if both the `w` and `h` dimension of `this` are larger than `other` and
+       *           false otherwise.
+       */
+      bool
+      contains(const Size<DimsType>& other) const noexcept;
+
     public:
 
     private:
