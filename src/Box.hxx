@@ -230,7 +230,7 @@ namespace utils {
   template <typename CoordinateType>
   inline
   bool
-  Box<CoordinateType>::included(const Box<CoordinateType>& other) const noexcept {
+  Box<CoordinateType>::includes(const Box<CoordinateType>& other) const noexcept {
     return other.contains(*this);
   }
 
