@@ -193,28 +193,45 @@ namespace utils {
   template <typename CoordinateType>
   inline
   bool
-  Box<CoordinateType>::intersects(const Box<CoordinateType>& other) const noexcept {
-    return getLeftBound() <= other.getRightBound() ||
-           getRightBound() >= other.getLeftBound() ||
-           getTopBound() >= other.getBottomBound() ||
-           getBottomBound() <= other.getTopBound();
+  Box<CoordinateType>::contains(const Vector2<CoordinateType>& point) const noexcept {
+    return 
+      getLeftBound() <= point.x() &&
+      getRightBound() >= point.x() &&
+      getBottomBound() <= point.y() &&
+      getTopBound() >= point.y()
+    ;
   }
 
   template <typename CoordinateType>
   inline
   bool
-  Box<CoordinateType>::isInside(const Box<CoordinateType>& other) const noexcept {
+  Box<CoordinateType>::intersects(const Box<CoordinateType>& other,
+                                  bool strict) const noexcept
+  {
+    // The `strict` value tells whether we should use `>=` or `>`
+    // operators for comparisons.
+    if (strict) {
+      return !(
+        getLeftBound() >= other.getRightBound() ||
+        getRightBound() <= other.getLeftBound() ||
+        getTopBound() <= other.getBottomBound() ||
+        getBottomBound() >= other.getTopBound()
+      );
+    }
+
+    return !(
+      getLeftBound() > other.getRightBound() ||
+      getRightBound() < other.getLeftBound() ||
+      getTopBound() < other.getBottomBound() ||
+      getBottomBound() > other.getTopBound()
+    );
+  }
+
+  template <typename CoordinateType>
+  inline
+  bool
+  Box<CoordinateType>::included(const Box<CoordinateType>& other) const noexcept {
     return other.contains(*this);
-  }
-
-  template <typename CoordinateType>
-  inline
-  bool
-  Box<CoordinateType>::isInside(const Vector2<CoordinateType>& point) const noexcept {
-    return getLeftBound() <= point.x() &&
-           getRightBound() >= point.x() &&
-           getBottomBound() <= point.y() &&
-           getTopBound() >= point.y();
   }
 
   template <typename CoordinateType>
