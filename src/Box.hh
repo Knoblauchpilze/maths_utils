@@ -108,28 +108,34 @@ namespace utils {
       contains(const Box<CoordinateType>& other) const noexcept;
 
       /**
-       * @brief - Checks whether the input box intersects this box.
-       * @param other - the other box to check for inclusion.
-       * @return - true if the other box is contained inside this box, false otherwise.
+       * @brief - Checks whether the input point is contained inside this box.
+       * @param point - the point which should be checked for inclusion.
+       * @return - true if the input `point` lies inside `this` box, false otherwise.
        */
       bool
-      intersects(const Box<CoordinateType>& other) const noexcept;
+      contains(const Vector2<CoordinateType>& point) const noexcept;
 
       /**
-       * @brief - Checks whether the input box contains this box.
-       * @param other - the box into which this box should be contained.
-       * @return - true if the other box contains this box, false otherwise.
+       * @brief - Checks whether `other` intersects `this` box. By default the intersection
+       *          is not strict (i.e. if the boxes are touching an intersection is still
+       *          reported). The user can modify this behavior using the input `strict`
+       *          boolean.
+       * @param other - the box which should be used to detect intersection with `this` box.
+       * @param struct - true if touching boxes should not be reported as intersecting,
+       *                 false otherwise.
+       * @return - true if the `other` box intersects with `this` box, false otherwise.
        */
       bool
-      isInside(const Box<CoordinateType>& other) const noexcept;
+      intersects(const Box<CoordinateType>& other,
+                 bool strict = false) const noexcept;
 
       /**
-       * @brief - Checks whether the input point is inside this box.
-       * @param point - the input point to check for inclusion in this box.
-       * @return - true if the point lies inside this box, false otherwise.
+       * @brief - Checks whether `other` contains `this` box.
+       * @param other - the box into which `this` box should be contained.
+       * @return - true if the `other` box contains `this` box, false otherwise.
        */
       bool
-      isInside(const Vector2<CoordinateType>& point) const noexcept;
+      included(const Box<CoordinateType>& other) const noexcept;
 
       /**
        * @brief - Retrieves the nearest point to the input 'point' belonging to this box.
