@@ -135,7 +135,7 @@ namespace utils {
        * @return - true if the `other` box contains `this` box, false otherwise.
        */
       bool
-      included(const Box<CoordinateType>& other) const noexcept;
+      includes(const Box<CoordinateType>& other) const noexcept;
 
       /**
        * @brief - Retrieves the nearest point to the input 'point' belonging to this box.
