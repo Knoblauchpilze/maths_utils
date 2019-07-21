@@ -168,6 +168,14 @@ namespace utils {
       fromSize(const Size<OtherCoordinateType>& size,
                const bool setToOrigin = false) noexcept;
 
+      /**
+       * @brief - Used to produce a box similar in dimensions to `this` box but with center at
+       *          the origin (i.e. `[0; 0]`).
+       * @return - a box with same dimensions as `this` box but with a center at the origin.
+       */
+      Box<CoordinateType>
+      toOrigin() const noexcept;
+
       Box<CoordinateType>
       scale(const float& factor) const noexcept;
 
