@@ -276,6 +276,18 @@ namespace utils {
   }
 
   template <typename CoordinateType>
+  inline
+  Box<CoordinateType>
+  Box<CoordinateType>::toOrigin() const noexcept {
+    return Box<CoordinateType>(
+      static_cast<CoordinateType>(0),
+      static_cast<CoordinateType>(0),
+      m_w,
+      m_h
+    );
+  }
+
+  template <typename CoordinateType>
   Box<CoordinateType>
   Box<CoordinateType>::scale(const float& factor) const noexcept {
     return Box<CoordinateType>(
