@@ -30,6 +30,27 @@ namespace utils {
 
   template <typename CoordinateType>
   inline
+  Box<CoordinateType>::Box(const CoordinateType& x,
+                           const CoordinateType& y,
+                           const Size<CoordinateType>& dims) noexcept:
+    m_x(x),
+    m_y(y),
+    m_w(dims.w()),
+    m_h(dims.h())
+  {}
+
+  template <typename CoordinateType>
+  inline
+  Box<CoordinateType>::Box(const Vector2<CoordinateType>& center,
+                           const Size<CoordinateType>& dims) noexcept:
+    m_x(center.x()),
+    m_y(center.y()),
+    m_w(dims.w()),
+    m_h(dims.h())
+  {}
+
+  template <typename CoordinateType>
+  inline
   bool
   Box<CoordinateType>::operator==(const Box<CoordinateType>& other) const noexcept {
     return
