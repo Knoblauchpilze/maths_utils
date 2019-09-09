@@ -36,6 +36,26 @@ namespace utils {
           const CoordinateType& width = CoordinateType(),
           const CoordinateType& height = CoordinateType()) noexcept;
 
+      /**
+       * @brief - Creates a box with the specified center and dimensions.
+       * @param x - the x coordinate of the center of the box to create.
+       * @param y - the y coordinate of the center of the box to create.
+       * @param dims - a measure of the dimensions of the box to create.
+       */
+      explicit
+      Box(const CoordinateType& x,
+          const CoordinateType& y,
+          const Size<CoordinateType>& dims = Size<CoordinateType>()) noexcept;
+
+      /**
+       * @brief - Creates a box with the specified center and dimensions.
+       * @param center - the center of the box to create.
+       * @param dims - a measure of the dimensions of the box to create.
+       */
+      explicit
+      Box(const Vector2<CoordinateType>& center,
+          const Size<CoordinateType>& dims) noexcept;
+
       bool
       operator==(const Box<CoordinateType>& other) const noexcept;
 
