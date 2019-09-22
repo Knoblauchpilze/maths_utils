@@ -101,16 +101,16 @@ namespace utils {
 }
 
 template <typename CoordinateType>
-utils::Vector2<CoordinateType>
-operator*(const CoordinateType& scale, const utils::Vector2<CoordinateType>& vector) noexcept;
+std::ostream&
+operator<<(std::ostream& out, const utils::Vector2<CoordinateType>& vec) noexcept;
 
 template <typename CoordinateType>
 std::ostream&
 operator<<(const utils::Vector2<CoordinateType>& vec, std::ostream& out) noexcept;
 
 template <typename CoordinateType>
-std::ostream&
-operator<<(std::ostream& out, const utils::Vector2<CoordinateType>& vec) noexcept;
+utils::Vector2<CoordinateType>
+operator*(const CoordinateType& scale, const utils::Vector2<CoordinateType>& vector) noexcept;
 
 # include "Vector2.hxx"
 

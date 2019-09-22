@@ -233,9 +233,10 @@ namespace utils {
 
 template <typename CoordinateType>
 inline
-utils::Vector2<CoordinateType>
-operator*(const CoordinateType& scale, const utils::Vector2<CoordinateType>& vector) noexcept {
-  return vector * scale;
+std::ostream&
+operator<<(std::ostream& out, const utils::Vector2<CoordinateType>& vec) noexcept {
+  out << vec.toString();
+  return out;
 }
 
 template <typename CoordinateType>
@@ -247,10 +248,9 @@ operator<<(const utils::Vector2<CoordinateType>& vec, std::ostream& out) noexcep
 
 template <typename CoordinateType>
 inline
-std::ostream&
-operator<<(std::ostream& out, const utils::Vector2<CoordinateType>& vec) noexcept {
-  out << vec.toString();
-  return out;
+utils::Vector2<CoordinateType>
+operator*(const CoordinateType& scale, const utils::Vector2<CoordinateType>& vector) noexcept {
+  return vector * scale;
 }
 
 #endif    /* VECTOR2_HXX_INCLUDED */

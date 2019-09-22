@@ -353,16 +353,16 @@ namespace utils {
 template <typename CoordinateType>
 inline
 std::ostream&
-operator<<(const utils::Box<CoordinateType>& box, std::ostream& out) noexcept {
-  return operator<<(out, box);
+operator<<(std::ostream& out, const utils::Box<CoordinateType>& box) noexcept {
+  out << box.toString();
+  return out;
 }
 
 template <typename CoordinateType>
 inline
 std::ostream&
-operator<<(std::ostream& out, const utils::Box<CoordinateType>& box) noexcept {
-  out << box.toString();
-  return out;
+operator<<(const utils::Box<CoordinateType>& box, std::ostream& out) noexcept {
+  return operator<<(out, box);
 }
 
 #endif    /* BOX_HXX_INCLUDED */
