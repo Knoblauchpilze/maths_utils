@@ -101,11 +101,11 @@ namespace utils {
 
 template <typename DimsType>
 std::ostream&
-operator<<(const utils::Size<DimsType>& size, std::ostream& out) noexcept;
+operator<<(std::ostream& out, const utils::Size<DimsType>& size) noexcept;
 
 template <typename DimsType>
 std::ostream&
-operator<<(std::ostream& out, const utils::Size<DimsType>& size) noexcept;
+operator<<(const utils::Size<DimsType>& size, std::ostream& out) noexcept;
 
 template <typename DimsType>
 utils::Size<DimsType>

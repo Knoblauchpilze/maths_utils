@@ -157,16 +157,16 @@ namespace utils {
 template <typename DimsType>
 inline
 std::ostream&
-operator<<(const utils::Size<DimsType>& size, std::ostream& out) noexcept {
-  return operator<<(out, size);
+operator<<(std::ostream& out, const utils::Size<DimsType>& size) noexcept {
+  out << size.toString();
+  return out;
 }
 
 template <typename DimsType>
 inline
 std::ostream&
-operator<<(std::ostream& out, const utils::Size<DimsType>& size) noexcept {
-  out << size.toString();
-  return out;
+operator<<(const utils::Size<DimsType>& size, std::ostream& out) noexcept {
+  return operator<<(out, size);
 }
 
 template <typename DimsType>

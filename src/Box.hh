@@ -225,11 +225,11 @@ namespace utils {
 
 template <typename CoordinateType>
 std::ostream&
-operator<<(const utils::Box<CoordinateType>& box, std::ostream& out) noexcept;
+operator<<(std::ostream& out, const utils::Box<CoordinateType>& box) noexcept;
 
 template <typename CoordinateType>
 std::ostream&
-operator<<(std::ostream& out, const utils::Box<CoordinateType>& box) noexcept;
+operator<<(const utils::Box<CoordinateType>& box, std::ostream& out) noexcept;
 
 # include "Box.hxx"
 
