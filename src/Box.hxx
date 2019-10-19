@@ -215,7 +215,7 @@ namespace utils {
   inline
   bool
   Box<CoordinateType>::contains(const Vector2<CoordinateType>& point) const noexcept {
-    return 
+    return
       getLeftBound() <= point.x() &&
       getRightBound() >= point.x() &&
       getBottomBound() <= point.y() &&
