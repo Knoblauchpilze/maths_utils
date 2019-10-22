@@ -46,7 +46,7 @@ namespace utils {
   template <typename DimsType>
   inline
   Size<DimsType>
-  Size<DimsType>::operator*(const float& scale) const noexcept {
+  Size<DimsType>::operator*(float scale) const noexcept {
     return Size(m_w * scale, m_h * scale);
   }
 
@@ -172,7 +172,7 @@ operator<<(const utils::Size<DimsType>& size, std::ostream& out) noexcept {
 template <typename DimsType>
 inline
 utils::Size<DimsType>
-operator*(const float& scale, const utils::Size<DimsType>& size) noexcept {
+operator*(float scale, const utils::Size<DimsType>& size) noexcept {
   return size * scale;
 }
 

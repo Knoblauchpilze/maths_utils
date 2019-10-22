@@ -197,7 +197,7 @@ namespace utils {
       toOrigin() const noexcept;
 
       Box<CoordinateType>
-      scale(const float& factor) const noexcept;
+      scale(float factor) const noexcept;
 
       /**
        * @brief - Computes the box resulting in the intersection of `this` box with the input
