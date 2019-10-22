@@ -85,8 +85,6 @@ namespace utils {
       bool
       contains(const Size<DimsType>& other) const noexcept;
 
-    public:
-
     private:
 
       DimsType m_w;
