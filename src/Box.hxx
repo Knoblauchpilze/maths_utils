@@ -310,7 +310,7 @@ namespace utils {
 
   template <typename CoordinateType>
   Box<CoordinateType>
-  Box<CoordinateType>::scale(const float& factor) const noexcept {
+  Box<CoordinateType>::scale(float factor) const noexcept {
     return Box<CoordinateType>(
       m_x,
       m_y,

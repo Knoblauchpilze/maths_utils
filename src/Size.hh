@@ -28,7 +28,7 @@ namespace utils {
       operator-(const Size& rhs) const noexcept;
 
       Size
-      operator*(const float& scale) const noexcept;
+      operator*(float scale) const noexcept;
 
       bool
       compareWithTolerance(const Size& rhs,
@@ -109,7 +109,7 @@ operator<<(const utils::Size<DimsType>& size, std::ostream& out) noexcept;
 
 template <typename DimsType>
 utils::Size<DimsType>
-operator*(const float& scale, const utils::Size<DimsType>& size) noexcept;
+operator*(float scale, const utils::Size<DimsType>& size) noexcept;
 
 # include "Size.hxx"
 
