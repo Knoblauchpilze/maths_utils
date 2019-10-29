@@ -50,6 +50,13 @@ namespace utils {
     return Size(m_w * scale, m_h * scale);
   }
 
+  template <typename CoordinateType>
+  inline
+  bool
+  Size<CoordinateType>::valid() const noexcept {
+    return m_w != CoordinateType() && m_h != CoordinateType();
+  }
+
   template <typename DimsType>
   inline
   bool

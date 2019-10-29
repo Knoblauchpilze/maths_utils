@@ -31,6 +31,9 @@ namespace utils {
       operator*(float scale) const noexcept;
 
       bool
+      valid() const noexcept;
+
+      bool
       compareWithTolerance(const Size& rhs,
                            const DimsType& tolerance) const noexcept;
 
