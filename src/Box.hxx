@@ -226,6 +226,20 @@ namespace utils {
   template <typename CoordinateType>
   inline
   bool
+  Box<CoordinateType>::fuzzyContains(const Vector2<CoordinateType>& point,
+                                     CoordinateType threshold) const noexcept
+  {
+    return
+      getLeftBound() - threshold <= point.x() &&
+      getRightBound() + threshold >= point.x() &&
+      getBottomBound() - threshold <= point.y() &&
+      getTopBound() + threshold >= point.y()
+    ;
+  }
+
+  template <typename CoordinateType>
+  inline
+  bool
   Box<CoordinateType>::intersects(const Box<CoordinateType>& other,
                                   bool strict) const noexcept
   {

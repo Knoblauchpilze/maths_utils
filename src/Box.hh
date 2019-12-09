@@ -122,7 +122,7 @@ namespace utils {
       /**
        * @brief - Checks whether the input box is contained inside this box.
        * @param other - the other box to check for inclusion.
-       * @return - true if the other box is contained inside this box, false otherwise.
+       * @return - `true` if the other box is contained inside this box, `false` otherwise.
        */
       bool
       contains(const Box<CoordinateType>& other) const noexcept;
@@ -130,10 +130,22 @@ namespace utils {
       /**
        * @brief - Checks whether the input point is contained inside this box.
        * @param point - the point which should be checked for inclusion.
-       * @return - true if the input `point` lies inside `this` box, false otherwise.
+       * @return - `true` if the input `point` lies inside `this` box, `false` otherwise.
        */
       bool
       contains(const Vector2<CoordinateType>& point) const noexcept;
+
+      /**
+       * @brief - Similar to the `contains` method but include some sort of a threshold
+       *          to make the comparison allow for values very close to being considered
+       *          inside the box to actually be considered inside.
+       * @param point - the point which should be checked for inclusion.
+       * @param threshold - a value representing the threshold to actually exclude a point.
+       * @return - `true` if the input `point` lies inside `this` box, `false` otherwise.
+       */
+      bool
+      fuzzyContains(const Vector2<CoordinateType>& point,
+                    CoordinateType threshold) const noexcept;
 
       /**
        * @brief - Checks whether `other` intersects `this` box. By default the intersection
@@ -141,9 +153,9 @@ namespace utils {
        *          reported). The user can modify this behavior using the input `strict`
        *          boolean.
        * @param other - the box which should be used to detect intersection with `this` box.
-       * @param struct - true if touching boxes should not be reported as intersecting,
-       *                 false otherwise.
-       * @return - true if the `other` box intersects with `this` box, false otherwise.
+       * @param struct - `true` if touching boxes should not be reported as intersecting,
+       *                 `false` otherwise.
+       * @return - `true` if the `other` box intersects with `this` box, `false` otherwise.
        */
       bool
       intersects(const Box<CoordinateType>& other,
@@ -152,7 +164,7 @@ namespace utils {
       /**
        * @brief - Checks whether `other` contains `this` box.
        * @param other - the box into which `this` box should be contained.
-       * @return - true if the `other` box contains `this` box, false otherwise.
+       * @return - `true` if the `other` box contains `this` box, `false` otherwise.
        */
       bool
       includes(const Box<CoordinateType>& other) const noexcept;
@@ -177,8 +189,8 @@ namespace utils {
        *          The input boolean allows to specify whether the center of the box should be
        *          set to the origin or to the center of the dimensions.
        * @param size - the size to convert.
-       * @param setToOrigin - true if the center of the created box should be set to the origin,
-       *                      false if it should be set to the center of the dimensions.
+       * @param setToOrigin - `true` if the center of the created box should be set to the origin,
+       *                      `false` if it should be set to the center of the dimensions.
        * @return - a box with the same width and height than the input `size` and with a center
        *           corresponding to `(size.w() / 2; size.h() / 2)`.
        */
