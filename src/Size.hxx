@@ -159,6 +159,13 @@ namespace utils {
     return m_w >= other.m_w && m_h >= other.m_h;
   }
 
+  template <typename DimsType>
+  inline
+  Size<DimsType>
+  Size<DimsType>::fromVector(const Vector2<DimsType>& vec) noexcept {
+    return Size<DimsType>(vec.x(), vec.y());
+  }
+
 }
 
 template <typename DimsType>

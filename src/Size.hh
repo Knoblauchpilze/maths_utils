@@ -2,6 +2,7 @@
 # define   SIZE_HH
 
 # include <iostream>
+# include "Vector2.hh"
 
 namespace utils {
 
@@ -87,6 +88,15 @@ namespace utils {
        */
       bool
       contains(const Size<DimsType>& other) const noexcept;
+
+      /**
+       * @brief - Creates a size with the same dimensions as the coordinates of the input vector.
+       * @param vec - the vector to convert.
+       * @return - a size with dimensions corresponding to the coordinates of the input vector.
+       */
+      static
+      Size<DimsType>
+      fromVector(const Vector2<DimsType>& vec) noexcept;
 
     private:
 
