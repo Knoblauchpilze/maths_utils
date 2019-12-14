@@ -127,6 +127,13 @@ namespace utils {
 
   template <typename DimsType>
   inline
+  DimsType
+  Size<DimsType>::area() const noexcept {
+    return m_w * m_h;
+  }
+
+  template <typename DimsType>
+  inline
   Size<DimsType>
   Size<DimsType>::max() noexcept {
     return Size(

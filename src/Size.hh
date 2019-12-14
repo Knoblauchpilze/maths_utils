@@ -62,6 +62,9 @@ namespace utils {
       void
       transpose() noexcept;
 
+      DimsType
+      area() const noexcept;
+
       static
       Size
       max() noexcept;
