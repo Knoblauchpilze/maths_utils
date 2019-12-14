@@ -170,28 +170,28 @@ namespace utils {
   inline
   Vector2<CoordinateType>
   Box<CoordinateType>::getTopLeftCorner() const noexcept {
-    return Vector2<CoordinateType>(m_x - m_w / CoordinateType(2.0f), m_y + m_h / CoordinateType(2.0f));
+    return Vector2<CoordinateType>(getLeftBound(), getTopBound());
   }
 
   template <typename CoordinateType>
   inline
   Vector2<CoordinateType>
   Box<CoordinateType>::getTopRightCorner() const noexcept {
-    return Vector2<CoordinateType>(m_x + m_w / CoordinateType(2.0f), m_y + m_h / CoordinateType(2.0f));
+    return Vector2<CoordinateType>(getRightBound(), getTopBound());
   }
 
   template <typename CoordinateType>
   inline
   Vector2<CoordinateType>
   Box<CoordinateType>::getBottomRightCorner() const noexcept {
-    return Vector2<CoordinateType>(m_x + m_w / CoordinateType(2.0f), m_y - m_h / CoordinateType(2.0f));
+    return Vector2<CoordinateType>(getRightBound(), getBottomBound());
   }
 
   template <typename CoordinateType>
   inline
   Vector2<CoordinateType>
   Box<CoordinateType>::getBottomLeftCorner() const noexcept {
-    return Vector2<CoordinateType>(m_x - m_w / CoordinateType(2.0f), m_y - m_h / CoordinateType(2.0f));
+    return Vector2<CoordinateType>(getLeftBound(), getBottomBound());
   }
 
   template <typename CoordinateType>
