@@ -134,6 +134,13 @@ namespace utils {
   template <typename CoordinateType>
   inline
   CoordinateType
+  Box<CoordinateType>::area() const noexcept {
+    return m_w * m_h;
+  }
+
+  template <typename CoordinateType>
+  inline
+  CoordinateType
   Box<CoordinateType>::getLeftBound() const noexcept {
     return m_x - m_w / CoordinateType(2.0f);
   }

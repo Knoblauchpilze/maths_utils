@@ -90,6 +90,9 @@ namespace utils {
       h() const noexcept;
 
       CoordinateType
+      area() const noexcept;
+
+      CoordinateType
       getLeftBound() const noexcept;
 
       CoordinateType
