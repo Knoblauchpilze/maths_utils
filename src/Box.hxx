@@ -345,27 +345,27 @@ namespace utils {
   Box<CoordinateType>::intersect(const Box<CoordinateType>& other) const noexcept {
     // Compute the box to intersect from the internal coordinates. First
     // we need to compute the width and height of the intersection if any.
-    const float overlappingW = std::min(getRightBound(), other.getRightBound()) - std::max(getLeftBound(), other.getLeftBound());
-    const float overlappingH = std::min(getTopBound(), other.getTopBound()) - std::max(getBottomBound(), other.getBottomBound());
+    const CoordinateType overlappingW = std::min(getRightBound(), other.getRightBound()) - std::max(getLeftBound(), other.getLeftBound());
+    const CoordinateType overlappingH = std::min(getTopBound(), other.getTopBound()) - std::max(getBottomBound(), other.getBottomBound());
 
     // Compute the center of this overlapping width and height. If one of
     // the dimension is negative it means that both boxes are not overlapping
     // along this direction and thus we return the midpoint along this axis.
     const float x = (
-      overlappingW < 0.0f ?
-      (other.m_x + m_x) / 2.0f :
-      (std::max(getLeftBound(), other.getLeftBound()) + std::min(getRightBound(), other.getRightBound())) / 2.0f
+      overlappingW < CoordinateType(0) ?
+      (other.m_x + m_x) / CoordinateType(2) :
+      (std::max(getLeftBound(), other.getLeftBound()) + std::min(getRightBound(), other.getRightBound())) / CoordinateType(2)
     );
     const float y = (
-      overlappingH < 0.0f ?
-      (other.m_y + m_y) / 2.0f :
-      (std::max(getBottomBound(), other.getBottomBound()) + std::min(getTopBound(), other.getTopBound())) / 2.0f
+      overlappingH < CoordinateType(0) ?
+      (other.m_y + m_y) / CoordinateType(2) :
+      (std::max(getBottomBound(), other.getBottomBound()) + std::min(getTopBound(), other.getTopBound())) / CoordinateType(2)
     );
 
     // Compute and return the intersection box.
-    return utils::Boxf(
+    return utils::Box<CoordinateType>(
       x, y,
-      std::max(0.0f, overlappingW), std::max(0.0f, overlappingH)
+      std::max(CoordinateType(0), overlappingW), std::max(CoordinateType(0), overlappingH)
     );
   }
 
