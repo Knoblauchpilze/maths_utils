@@ -90,6 +90,22 @@ namespace utils {
       std::string
       toString() const noexcept;
 
+      static
+      Vector2<CoordinateType>
+      max() noexcept;
+
+      static
+      Vector2<CoordinateType>
+      min() noexcept;
+
+      static
+      Vector2<CoordinateType>
+      minmax() noexcept;
+
+      static
+      Vector2<CoordinateType>
+      maxmin() noexcept;
+
     private:
 
       CoordinateType m_x;

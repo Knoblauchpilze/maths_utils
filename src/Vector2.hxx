@@ -10,7 +10,7 @@ namespace utils {
   template <typename CoordinateType>
   inline
   Vector2<CoordinateType>::Vector2(const CoordinateType& x,
-                                    const CoordinateType& y) noexcept:
+                                   const CoordinateType& y) noexcept:
     m_x(x),
     m_y(y)
   {}
@@ -227,6 +227,46 @@ namespace utils {
   std::string
   Vector2<CoordinateType>::toString() const noexcept {
     return std::string("[Vector: ") + std::to_string(x()) + ", " + std::to_string(y()) + "]";
+  }
+
+  template <typename CoordinateType>
+  inline
+  Vector2<CoordinateType>
+  Vector2<CoordinateType>::max() noexcept {
+    return Vector2(
+      std::numeric_limits<CoordinateType>::max(),
+      std::numeric_limits<CoordinateType>::max()
+    );
+  }
+
+  template <typename CoordinateType>
+  inline
+  Vector2<CoordinateType>
+  Vector2<CoordinateType>::min() noexcept {
+    return Vector2(
+      std::numeric_limits<CoordinateType>::lowest(),
+      std::numeric_limits<CoordinateType>::lowest()
+    );
+  }
+
+  template <typename CoordinateType>
+  inline
+  Vector2<CoordinateType>
+  Vector2<CoordinateType>::minmax() noexcept {
+    return Vector2(
+      std::numeric_limits<CoordinateType>::lowest(),
+      std::numeric_limits<CoordinateType>::max()
+    );
+  }
+
+  template <typename CoordinateType>
+  inline
+  Vector2<CoordinateType>
+  Vector2<CoordinateType>::maxmin() noexcept {
+    return Vector2(
+      std::numeric_limits<CoordinateType>::max(),
+      std::numeric_limits<CoordinateType>::lowest()
+    );
   }
 
 }
