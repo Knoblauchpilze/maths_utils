@@ -272,6 +272,29 @@ namespace utils {
   template <typename CoordinateType>
   inline
   bool
+  Box<CoordinateType>::intersectsBottomLeft(const Box<CoordinateType>& other) const noexcept {
+    if (other.getLeftBound() >= getRightBound()) {
+      return false;
+    }
+
+    if (other.getRightBound() < getLeftBound()) {
+      return false;
+    }
+
+    if (other.getBottomBound() >= getTopBound()) {
+      return false;
+    }
+
+    if (other.getTopBound() < getBottomBound()) {
+      return false;
+    }
+
+    return true;
+  }
+
+  template <typename CoordinateType>
+  inline
+  bool
   Box<CoordinateType>::includes(const Box<CoordinateType>& other) const noexcept {
     return other.contains(*this);
   }

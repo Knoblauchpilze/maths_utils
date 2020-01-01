@@ -156,13 +156,23 @@ namespace utils {
        *          reported). The user can modify this behavior using the input `strict`
        *          boolean.
        * @param other - the box which should be used to detect intersection with `this` box.
-       * @param struct - `true` if touching boxes should not be reported as intersecting,
+       * @param strict - `true` if touching boxes should not be reported as intersecting,
        *                 `false` otherwise.
        * @return - `true` if the `other` box intersects with `this` box, `false` otherwise.
        */
       bool
       intersects(const Box<CoordinateType>& other,
                  bool strict = false) const noexcept;
+
+      /**
+       * @brief - INtersects `other` with `this` box by considering that it is a bottom left
+       *          based box. This means that the intersection test will be strict regarding
+       *          the top and right borders but fuzzy for the left and bottom ones.
+       * @param other - the box to check for intersection.
+       * @return - `true` if the `other` box intersects `this` box and `false` otherwise.
+       */
+      bool
+      intersectsBottomLeft(const Box<CoordinateType>& other) const noexcept;
 
       /**
        * @brief - Checks whether `other` contains `this` box.
