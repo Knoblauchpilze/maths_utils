@@ -25,6 +25,16 @@ namespace utils {
     return value1 == value2;
   }
 
+  template <typename DataType>
+  inline
+  DataType
+  clamp(const DataType& val,
+        const DataType& min,
+        const DataType& max)
+  {
+    return std::min(std::max(val, min), max);
+  }
+
 }
 
 #endif    /* COMPARISONUTILS_HXX */

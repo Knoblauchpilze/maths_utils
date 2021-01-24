@@ -11,6 +11,12 @@ namespace utils {
              const DataType& value2,
              const DataType& epsilon = std::numeric_limits<DataType>::min());
 
+  template <typename DataType>
+  DataType
+  clamp(const DataType& val,
+        const DataType& min,
+        const DataType& max);
+
 }
 
 # include "ComparisonUtils.hxx"

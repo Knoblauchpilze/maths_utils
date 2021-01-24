@@ -49,7 +49,7 @@ namespace utils {
     // the value returned is in the interval `]-pi, pi]` (even though it
     // is not clear if the interval is open in `-pi`) so as we want the
     // value in the range `[0; 2pi[` we need to add `pi`.
-    return std::min(std::max(theta + 3.1415926535f, 0.0f), 6.283185307f);
+    return utils::clamp(theta + 3.1415926535f, 0.0f, 6.283185307f);
   }
 
   inline
