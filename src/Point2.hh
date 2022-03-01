@@ -6,6 +6,7 @@
 namespace utils {
 
   using Point2f = Vector2f;
+  using Point2i = Vector2i;
 
 }
 
