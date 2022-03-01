@@ -12,9 +12,10 @@ namespace utils {
     return std::sqrt(d2(x1, y1, x2, y2));
   }
 
+  template <typename T>
   inline
   float
-  d(const Point2f& p1, const Point2f& p2) noexcept {
+  d(const Vector2<T>& p1, const Vector2<T>& p2) noexcept {
     return std::sqrt(d2(p1, p2));
   }
 
@@ -24,9 +25,10 @@ namespace utils {
     return (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
   }
 
+  template <typename T>
   inline
   float
-  d2(const Point2f& p1, const Point2f& p2) noexcept {
+  d2(const Vector2<T>& p1, const Vector2<T>& p2) noexcept {
     return d2(p1.x(), p1.y(), p2.x(), p2.y());
   }
 
