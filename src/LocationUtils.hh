@@ -24,8 +24,9 @@ namespace utils {
    * @param p2 - the second point.
    * @return - the distance between the two points.
    */
+  template <typename T>
   float
-  d(const Point2f& p1, const Point2f& p2) noexcept;
+  d(const Vector2<T>& p1, const Vector2<T>& p2) noexcept;
 
   /**
    * @brief - Similar to `d` but returns the squared
@@ -47,8 +48,9 @@ namespace utils {
    * @param p2 - the second point.
    * @return - the distance between the two points.
    */
+  template <typename T>
   float
-  d2(const Point2f& p1, const Point2f& p2) noexcept;
+  d2(const Vector2<T>& p1, const Vector2<T>& p2) noexcept;
 
   /**
    * @brief - Used to compute the angle associated to
